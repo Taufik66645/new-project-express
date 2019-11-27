@@ -4,6 +4,7 @@ const app = express();
 const port = 3002;
 const bodyParser = require('body-parser');
 
+// pakai let supaya bisa dihapus
 let todoList = [
     {
         id: 1,
@@ -77,6 +78,7 @@ app.put('/:id', (req, res) => {
       todoList.map(data => {
         if (data.id == req.params.id) {
           todoList[getTodoToUpdate].task = req.body.task;
+          todoList[getTodoToUpdate].done = req.body.done;
         }
       });
       res.send({
