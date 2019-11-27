@@ -1,13 +1,14 @@
 require("dotenv").config();
 const express = require('express');
 const app = express();
-const port = 3002;
+const port = process.env.PORT || 3002;
 const bodyParser = require('body-parser');
 
 // pakai let supaya bisa dihapus
 let todoList = [
     {
         id: 1,
+        day: 'Monday',
         task: 'learn Express',
         done: false
     },
@@ -78,7 +79,7 @@ app.put('/:id', (req, res) => {
       todoList.map(data => {
         if (data.id == req.params.id) {
           todoList[getTodoToUpdate].task = req.body.task;
-          todoList[getTodoToUpdate].done = req.body.done;
+          todoList[getTodoToUpdate].day = req.body.day;
         }
       });
       res.send({
@@ -91,7 +92,7 @@ app.put('/:id', (req, res) => {
 });
   
 app.listen(port, () => {
-    console.log('TEST')
+    console.log('running on ' + port)
 
 });
 
