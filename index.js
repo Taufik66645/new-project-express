@@ -4,7 +4,7 @@ const app = express();
 const port = 3002;
 const bodyParser = require('body-parser');
 
-const todoList = [
+let todoList = [
     {
         id: 1,
         task: 'learn Express',
@@ -68,8 +68,9 @@ app.delete('/:id', (req, res) => {
       console.log(error);
       res.send(error);
     }
-  });
-  app.put('/:id', (req, res) => {
+});
+
+app.put('/:id', (req, res) => {
     try {
       let getTodoToUpdate = todoList.findIndex(data => data.id == req.params.id);
   
@@ -85,9 +86,11 @@ app.delete('/:id', (req, res) => {
     } catch (error) {
       res.send(error);
     }
-  });
+});
   
-  app.listen(process.env.PORT, () => {
-    console.log(`Your server is running on PORT ${process.env.PORT}`)
-  });
+app.listen(port, () => {
+    console.log('TEST')
+
+});
+
     
