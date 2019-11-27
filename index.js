@@ -80,6 +80,8 @@ app.put('/:id', (req, res) => {
         if (data.id == req.params.id) {
           todoList[getTodoToUpdate].task = req.body.task;
           todoList[getTodoToUpdate].day = req.body.day;
+          todoList[getTodoToUpdate].done = req.body.done;
+
         }
       });
       res.send({
